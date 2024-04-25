@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+Weather Now
+Description
+Weather application which lists a set of cities in the United States
+App should be able to provide the weather information for the next 10 days of a selected city (this has been limited to 5 days due to API limitation apart from the current date)
+Selected city should maintain stickiness across the browser sessions
+App should be responsive with the cards being stacked on portrait mode and placed horizontally when in landscape mode
+High Level Design:
+Components used in the app are Title, Form, Cities, WeatherInfoContainer and WeatherInfoCard
+API for the weather information was provided by Open Weather Map this provides forecast details for the upcoming 5 days along with the current date
+Forecasted city would be retained in the browser storage and retrieved on subsequent visits
+Detailed Design:
+Built the app using react functional components with hooks to handle state and other life cycle methods
+App component acts as the core parent component of application, it takes care of loading the initial state, data communication and also handles how the data gets propagated to various underlying components
+Functionalities are built in a plug and play fashion where the WeatherInfoCard is only responsible to render the forecast information of a particular day and nothing else
+Initial state of the application is set by looking up the browser storage for any pre-selected city for which the forecast can be fetched
+Every successful forecast is then updated back to the storage so that the subsequent visits would be handled accordingly
+Error handling is in place to address various scenarios like weather information for a given city is not available, or if no selection has been made et cetera.
+Bootstrap was used to style the page based on the requirement and it was kept light weight without adding any additional resources
+Kept the layout of the application simple to have any modification or enhancement in future to evolve the layout as required
+Front End Implementation:
+HTML
+CSS
+React
+API Details:
+https://api.openweathermap.org/data/2.5/forecast
+Application Link:
+Link to the Application hosted on Netlify react-weather-now-app.netlify.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How to Run the Application:
+Clone the repo and setup the application
 
-## Available Scripts
+# clone the git repo
+git clone https://github.com/Natesan/react-weather-app.git
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+cd react-weather-app/
+npm install
+npm start
+Advanced Features (To be built):
+Advanced search for cities
+Geo Location API integration
+Celsius to Fahrenheit Conversion
+Sharable Content
+Offline Mode
+Include middleware to store the cities which the user accessed frequently
